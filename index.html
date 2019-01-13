@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>创建带logo和文字的二维码，并附带下载功能</title>
+</head>
+<body style="background:rgb(223, 239, 252);">
+<div id="main">
+	<div id="button-wrapper">
+	        <a id="qrcode_btn_creat" class='btn'>生成二维码</a>
+			<a id="qrcode_btn-download" class='btn'>下载二维码</a>
+	</div>
+	<div id="show-wrapper">
+	</div>
+</div>
+<script type="text/javascript" src="js/lib/jquery.js"></script>
+<script type="text/javascript" src="js/lib/qrcode.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script>
+	var container = $('#show-wrapper');
+	var text ="突然好想你";
+	$('#qrcode_btn_creat').click(function(){
+		createQRCodeWidthLogoAndText('',container,text);
+	})
+</script>
+</body>
+</html>
