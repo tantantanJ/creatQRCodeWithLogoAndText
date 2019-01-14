@@ -70,7 +70,7 @@ function createQRCodeWidthLogoAndText(parValue,parentContainer,text){
     function drawText(text){
     	var textCanvas=document.createElement("canvas");
     	textCanvas.setAttribute("id", "textCanvas");
-    	textCanvas.width = imgWidth;
+    	textCanvas.width = imgWidth+20;
     	textCanvas.height = textCanvasHeight;
     	textCanvas.style.display="none";
     	document.body.appendChild(textCanvas);
@@ -100,10 +100,10 @@ function createQRCodeWidthLogoAndText(parValue,parentContainer,text){
     	var allCanvas=document.createElement("canvas");
     	allCanvas.setAttribute("id", "allCanvas");
     	var ctx = allCanvas.getContext("2d");
-    	allCanvas.width = imgWidth;
-    	allCanvas.height = imgHeight+textCanvasHeight;
+    	allCanvas.width = imgWidth+20;
+    	allCanvas.height = imgHeight+textCanvasHeight+20;
     	ctx.fillStyle="#ffffff";
-    	ctx.fillRect(0,0,imgWidth,imgHeight+textCanvasHeight);
+    	ctx.fillRect(0,0,imgWidth,imgHeight+textCanvasHeight+20);
     	document.body.appendChild(allCanvas);
     	
     	var imgQrcode = new Image();
@@ -123,9 +123,9 @@ function createQRCodeWidthLogoAndText(parValue,parentContainer,text){
     			var imgLogo = new Image();
     			imgLogo.src = "Logo/qrcodeLogo.png"; //logo url
     			imgLogo.onload = function(){
-    				ctx.drawImage(imgQrcode, 10, 10, imgWidth-20, imgHeight-20);
-    				ctx.drawImage(imgLogo, 80, 80, 40, 40);
-    				ctx.drawImage(imgText, 0, imgHeight, imgWidth, textCanvasHeight);
+    				ctx.drawImage(imgQrcode, 10, 10, imgWidth, imgHeight);
+    				ctx.drawImage(imgLogo,(imgWidth+20)/2-20, (imgWidth+20)/2-20, 40, 40);
+    				ctx.drawImage(imgText, 0, imgHeight+15, imgWidth+20, textCanvasHeight);
     				callback && callback();
     			}
     		}   	
